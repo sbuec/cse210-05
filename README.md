@@ -6,11 +6,11 @@ Eric Woll - Steelheart96 * Character, trails, collision
 
 Class functions:
 
-display points
-director class
-actor
-  character
-  trail
-input
-video
+display points,
+director class,
+actor,
+  character,
+  trail,
+input,
+video,
 
