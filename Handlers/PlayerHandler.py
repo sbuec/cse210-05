@@ -3,14 +3,17 @@ from Actors.Player import Player
 from Movement.KeyboardInput import KeyInput
 
 class PlayerHandler(Handler):
+    '''
+    Description: Handles all player actions
+    '''
 
-    def load(self, name, setup_info):
+    def load(self, name: str, setup_info: list):
         '''
         Description: Creates an instance of a Player
 
         Args:
         - name (str): The name of an object already in the Handler
-        - setup_info: player_num (int), dispay_char (Character), window (Window)
+        - setup_info (list): player_num (int), dispay_char (Character), window (Window)
         '''
         player = Player(*setup_info)
         self._input[name].insert(0, player)

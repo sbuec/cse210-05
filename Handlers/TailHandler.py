@@ -2,8 +2,11 @@ from Handlers.Handler import Handler
 from Actors.Tail import Tail
 
 class TailHandler(Handler):
+    '''
+    Description: Handles all player actions
+    '''
 
-    def set_tail_timer(time, window_fps):
+    def set_tail_timer(time: int, window_fps: int):
         '''
         Description: Sets timer for player tail.
         
@@ -13,7 +16,7 @@ class TailHandler(Handler):
         '''
         Tail.Timer = time * window_fps
 
-    def load(self, name, setup_info):
+    def load(self, name: str, setup_info: list):
         '''
         Description: Creates an instance of a Tlayer
 

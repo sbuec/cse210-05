@@ -6,22 +6,24 @@ from Handlers.PlayerHandler import PlayerHandler
 
 WINDOW = Window(height = 450, width = 800, caption = "Greed", fps_cap = 60)
 
+FONT_SIZE = 12
+
 def main():
 
-    pr.init_window(WINDOW.width, WINDOW.height, WINDOW.caption)
+    pr.init_window(*WINDOW.pr_window_setup())
     pr.set_target_fps(WINDOW.fps_cap)
 
     # player setup
     players = PlayerHandler()
-    player_char = Character('@', 12, pr.GREEN)
+    player_char = Character('@', FONT_SIZE, pr.GREEN)
     p1 = players.add('p1', [1, player_char, WINDOW])
     p2 = players.add('p2', [2, player_char, WINDOW])
 
     # tail setup
     tails = TailHandler()
     TailHandler.set_tail_timer(3, WINDOW.fps_cap)
-    t1 = tails.add('t1', [p1, p2, Character('#', 12, pr.BLUE), WINDOW])
-    t2 = tails.add('t2', [p2, p1, Character('#', 12, pr.RED), WINDOW])
+    t1 = tails.add('t1', [p1, p2, Character('#', FONT_SIZE, pr.BLUE), WINDOW])
+    t2 = tails.add('t2', [p2, p1, Character('#', FONT_SIZE, pr.RED), WINDOW])
 
 
     while not pr.window_should_close():

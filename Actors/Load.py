@@ -1,5 +1,4 @@
 import pyray as pr
-from Actors.Actor import Actor
 
 class Load:
     '''
@@ -53,7 +52,7 @@ class Load:
         image = pr.image_text(character, font_size, color)
         return pr.load_texture_from_image(image)
     
-    def draw_rectangle(actor: Actor) -> None:
+    def draw_rectangle(actor) -> None:
         '''
         Description: Creates a rectangle, renders it's texture, and places it on screen
 
