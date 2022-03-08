@@ -4,7 +4,11 @@ from Actors.Load import Load
 
 class Actor:
     '''
-    Holds Initialization and base functions for Images to Objects
+    Description: A Class that takes in a Character and a Window and sets a texture instance variable.
+
+    Args:
+    - display_char (Character): String information to create a texture
+    - window (Window): All window information
     '''
 
     def __init__(self, display_char: Character, window: Window) -> None:
@@ -13,9 +17,15 @@ class Actor:
         self.Load_texture()
 
     def Load_texture(self):
-        '''Loads in an Actor Texture'''
+        '''
+        Description: Loads in an Actor Texture
+        
+        Uses: self.display_char (Character)
+        '''
         self.texture = Load.text_to_texture(self.display_char.character, self.display_char.font_size, self.display_char.color)
 
     def draw(self):
-        '''Draws an Actor'''
+        '''
+       Description: Draws an Actor using the Actor's position and texture
+        '''
         Load.draw_rectangle(self)

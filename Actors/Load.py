@@ -1,13 +1,14 @@
 import pyray as pr
+from Actors.Actor import Actor
 
 class Load:
     '''
-    Holds methods for creating images, loading textures, and drawing rectangles
+    Description: A class that holds methods for creating images, loading textures, and drawing rectangles.
     '''
 
     def text_to_image(character:str , font_size:int , color: pr.Vector4) -> pr.Image:
         '''
-        Creates an image from text
+        Description: Creates an image from text
         
         Returns:
         - pr.Image
@@ -16,7 +17,7 @@ class Load:
 
     def image_file_to_image(image: str):
         '''
-        Takes an image file and makes it a pr.Texture
+        Description: Takes an image file and makes it a pr.Texture
 
         Returns:
         - pr.Texture
@@ -25,7 +26,7 @@ class Load:
 
     def image_file_to_texture(image: str):
         '''
-        Takes an image file and makes it a pr.Texture
+        Description: Takes an image file and makes it a pr.Texture
 
         Returns:
         - pr.Texture
@@ -35,7 +36,7 @@ class Load:
     
     def image_to_texture(image: pr.Image):
         '''
-        Takes an image and makes it a pr.Texture
+        Description: Takes an image and makes it a pr.Texture
 
         Returns:
         - pr.Texture
@@ -44,7 +45,7 @@ class Load:
 
     def text_to_texture(character: str, font_size: int, color: pr.Color) -> pr.Texture:
         '''
-        Takes a string and makes it a pr.Texture
+        Description: Takes a string and makes it a pr.Texture
 
         Returns:
         - pr.Texture
@@ -52,9 +53,12 @@ class Load:
         image = pr.image_text(character, font_size, color)
         return pr.load_texture_from_image(image)
     
-    def draw_rectangle(actor) -> None:
+    def draw_rectangle(actor: Actor) -> None:
         '''
-        Creates a rectangle, renders it's texture, and places it on screen
+        Description: Creates a rectangle, renders it's texture, and places it on screen
+
+        Args:
+        - actor (Actor): An instance of a Player or Tail
         '''
         pr.draw_texture_rec(
             actor.texture,

@@ -4,13 +4,22 @@ from Actors.Tail import Tail
 class TailHandler(Handler):
 
     def set_tail_timer(time, window_fps):
-        '''Sets timer for player tail. Measured in seconds.'''
+        '''
+        Description: Sets timer for player tail.
+        
+        Args:
+        - time (int): Amount of time (seconds) a Segment is on screen
+        - window_fps (int): Program window fps
+        '''
         Tail.Timer = time * window_fps
 
     def load(self, name, setup_info):
         '''
-        name: dictionary key
-        setup_info: attached_player (Player), opponent_player (Player), texture (Texture), window (Window)
+        Description: Creates an instance of a Tlayer
+
+        Args:
+        - name: The name of an object already in the Handler
+        - setup_info: attached_player (Player), opponent_player (Player), texture (Texture), window (Window)
         '''
         tail = Tail(*setup_info)
         self._input[name].insert(0, tail)

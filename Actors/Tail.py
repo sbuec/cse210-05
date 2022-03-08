@@ -2,7 +2,7 @@ from Actors.Player import Player
 from Actors.Actor import Actor
 from Actors.Collision import Collision
 from Actors.Segments import Segment
-from pyray import Texture
+from Structs.Texture import Character
 from Structs.Window import Window
 from Actors.Load import Load
 
@@ -10,33 +10,46 @@ class Tail(Actor):
     '''
     Class for Tail Segments of Player
     
-    Timer (int): The amount of time a tail piece stays on screen in seconds
+    Class Variable:
+    - Timer (int): The amount of time a tail piece stays on screen (in seconds)
+    
+    Args:
+    - attached_player (Player): The player the tail is going to be generated from
+    - opponent_player (Player): The player that the tail is going to be checking for collisions
+    - display_char (Character): String information to create a texture
+    - window (Window): All window information
     '''
 
     Timer = 0
 
-    def __init__(self, attached_player: Player, opponent_player: Player, texture: Texture, window: Window) -> None:
-        super().__init__(texture, window)
+    def __init__(self, attached_player: Player, opponent_player: Player, display_char: Character, window: Window) -> None:
+        super().__init__(display_char, window)
         self._attached_player = attached_player
         self._opponent = opponent_player
         self.set_up()
     
     def set_up(self) -> None:
+        '''
+        Description: Prepares the Tail instance to hold Segment instances.
+        '''
         self._segments = []
         self._segments.append(self._attached_player)
 
     def update_tail(self) -> None:
+        '''
+        Description: Main update function that runs through runtime Tail insatnce operations
+        '''
         self.tail_collision()
         self.update_tail_timer()
     
     def tail_collision(self) -> None:
-        '''Checks for collision between last placed tail and possible new tail'''
+        '''
+        Description: Checks for collision between last placed tail and possible new tail
+        '''
         pos_x = self._attached_player.pos_x
         pos_y = self._attached_player.pos_y
-        width = self._attached_player.texture.width
-        height = self._attached_player.texture.height
 
-        new_segment = Tail.create_new_tail(pos_x, pos_y, width, height, self.texture)
+        new_segment = Tail.create_new_tail(pos_x, pos_y, self.texture)
 
         if self._segments.index(self._segments[-1]) != 0:
             if not Collision.tail_collide_check(self._segments[-1], new_segment):
@@ -45,20 +58,25 @@ class Tail(Actor):
             self._segments.append(new_segment)
 
     def player_collision(self) -> bool:
-        '''Checks for collision of opponent and attached player tail'''
+        '''
+        Description: Checks for collision of opponent and attached player tail
+        '''
         for segment in self._segments:
             if self._segments.index(segment) != 0:
                 if Collision.player_collide_check( segment, self._opponent):
                     return True
         return False
     
-    def create_new_tail(pos_x, pos_y, width, height, texture) -> Segment:
-        '''Creates new tail segment'''
-        timer = Tail.Timer
-        return Segment(pos_x, pos_y, width, height, texture, timer)
+    def create_new_tail(pos_x, pos_y, texture) -> Segment:
+        '''
+        Description: Creates a new tail segment
+        '''
+        return Segment(pos_x, pos_y, texture, Tail.Timer)
     
     def update_tail_timer(self) -> None:
-        '''updates segments on screen timer'''
+        '''
+        Description: Updates segments onscreen timer
+        '''
         for segment in self._segments:
             if self._segments.index(segment) != 0:
                 segment.update_timer()
@@ -66,7 +84,9 @@ class Tail(Actor):
                     self._segments.remove(segment)
 
     def draw_tail(self) -> None:
-        '''Draws tail'''
+        '''
+        Description: Draws Tail segments
+        '''
         for segment in self._segments:
             if self._segments.index(segment) != 0:
                 Load.draw_rectangle(segment)

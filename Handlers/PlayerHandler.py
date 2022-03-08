@@ -6,8 +6,11 @@ class PlayerHandler(Handler):
 
     def load(self, name, setup_info):
         '''
-        name: dictionary key
-        setup_info: player_num (int), dispay_char (Character), window (Window)
+        Description: Creates an instance of a Player
+
+        Args:
+        - name (str): The name of an object already in the Handler
+        - setup_info: player_num (int), dispay_char (Character), window (Window)
         '''
         player = Player(*setup_info)
         self._input[name].insert(0, player)

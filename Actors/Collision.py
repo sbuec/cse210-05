@@ -5,10 +5,18 @@ NOTE This is class and file are likely to be removed!
 '''
 
 class Collision:
-    '''Class that holds collision methods'''
+    '''
+    Description: A Class that holds all the base collision methods.
+    '''
 
     def player_collide_check(tail, player) -> bool:
-        ''' checks for collision between player and tail'''
+        '''
+        Description: Checks for collision between player and tail.
+        
+        Args:
+        - player (Player): A Player's tail
+        - tail (Tail): The opposing Player's tail
+        '''
         return check_collision_recs(
                 [tail.pos_x, tail.pos_y, tail.texture.width, tail.texture.height],
                 [player.pos_x, player.pos_y, player.texture.width, player.texture.height]
@@ -16,7 +24,7 @@ class Collision:
 
     def tail_collide_check(tail1, tail2) -> bool:
         '''
-        checks for collision between tail piece and possible tail piece
+        Description: Checks for collision between tail piece and possible tail piece.
 
         Args:
         - tail1: tail already created
