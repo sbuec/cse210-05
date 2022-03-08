@@ -21,18 +21,15 @@ class Tail(Actor):
         self._opponent = opponent_player
         self.set_up()
     
-    def set_up(self):
+    def set_up(self) -> None:
         self._segments = []
         self._segments.append(self._attached_player)
 
-    def set_tail_timer(timer):
-        Tail.Timer = timer
-
-    def update_tail(self):
+    def update_tail(self) -> None:
         self.tail_collision()
         self.update_tail_timer()
     
-    def tail_collision(self):
+    def tail_collision(self) -> None:
         '''Checks for collision between last placed tail and possible new tail'''
         pos_x = self._attached_player.pos_x
         pos_y = self._attached_player.pos_y
@@ -55,12 +52,12 @@ class Tail(Actor):
                     return True
         return False
     
-    def create_new_tail(pos_x, pos_y, width, height, texture):
+    def create_new_tail(pos_x, pos_y, width, height, texture) -> Segment:
         '''Creates new tail segment'''
-        timer = Tail.Timer * 60
+        timer = Tail.Timer
         return Segment(pos_x, pos_y, width, height, texture, timer)
     
-    def update_tail_timer(self):
+    def update_tail_timer(self) -> None:
         '''updates segments on screen timer'''
         for segment in self._segments:
             if self._segments.index(segment) != 0:
@@ -68,7 +65,7 @@ class Tail(Actor):
                 if segment.screen_time == 0:
                     self._segments.remove(segment)
 
-    def draw_tail(self):
+    def draw_tail(self) -> None:
         '''Draws tail'''
         for segment in self._segments:
             if self._segments.index(segment) != 0:

@@ -8,7 +8,7 @@ class Collision:
     '''Class that holds collision methods'''
 
     def player_collide_check(tail, player) -> bool:
-        ''' checks for collision of player and new possible tail'''
+        ''' checks for collision between player and tail'''
         return check_collision_recs(
                 [tail.pos_x, tail.pos_y, tail.texture.width, tail.texture.height],
                 [player.pos_x, player.pos_y, player.texture.width, player.texture.height]
@@ -24,7 +24,7 @@ class Collision:
         '''
         if tail2 != None:
             return check_collision_recs(
-                    [tail1.pos_x, tail1.pos_y,tail1.width, tail1.height],
-                    [tail2.pos_x, tail2.pos_y, tail2.width, tail2.height]
+                    [tail1.pos_x, tail1.pos_y, tail1.texture.width, tail1.texture.height],
+                    [tail2.pos_x, tail2.pos_y, tail2.texture.width, tail2.texture.height]
                 )
         return False

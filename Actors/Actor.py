@@ -13,9 +13,9 @@ class Actor:
         self.Load_texture()
 
     def Load_texture(self):
-        '''Loads in Actor Texture'''
+        '''Loads in an Actor Texture'''
         self.texture = Load.text_to_texture(self.display_char.character, self.display_char.font_size, self.display_char.color)
 
     def draw(self):
-        '''Draws Actor'''
+        '''Draws an Actor'''
         Load.draw_rectangle(self)

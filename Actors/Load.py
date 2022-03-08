@@ -7,7 +7,7 @@ class Load:
 
     def text_to_image(character:str , font_size:int , color: pr.Vector4) -> pr.Image:
         '''
-        Creates image from text
+        Creates an image from text
         
         Returns:
         - pr.Image
@@ -16,7 +16,7 @@ class Load:
 
     def image_file_to_image(image: str):
         '''
-        Takes a image file and makes it a pr.Texture
+        Takes an image file and makes it a pr.Texture
 
         Returns:
         - pr.Texture
@@ -25,7 +25,7 @@ class Load:
 
     def image_file_to_texture(image: str):
         '''
-        Takes a image file and makes it a pr.Texture
+        Takes an image file and makes it a pr.Texture
 
         Returns:
         - pr.Texture
@@ -35,7 +35,7 @@ class Load:
     
     def image_to_texture(image: pr.Image):
         '''
-        Takes a image and makes it a pr.Texture
+        Takes an image and makes it a pr.Texture
 
         Returns:
         - pr.Texture

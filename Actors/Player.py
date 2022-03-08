@@ -14,7 +14,7 @@ class Player(Actor):
 		self.set_position()
 
 	def set_position(self) -> None:
-		''' Sets start position of player '''
+		''' Sets start position of players '''
 		if self.player_num == 1:
 			self.pos_x = self.window.width//3 - self.texture.width
 			self.pos_y = self.window.height//2 - self.texture.height
