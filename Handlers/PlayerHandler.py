@@ -1,6 +1,5 @@
 from Handlers.Handler import Handler
 from Actors.Player import Player
-from Movement.KeyboardInput import KeyInput
 
 class PlayerHandler(Handler):
     '''
@@ -23,6 +22,7 @@ class PlayerHandler(Handler):
             player_info[0].draw()
     
     def update(self) -> None:
+        '''
         for player_info in self._input.values():
-            KeyInput.update_direction(player_info[0])
-            KeyInput.update_player_position(player_info[0])
+             > player_info[0] is the player object
+        '''
