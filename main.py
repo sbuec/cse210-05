@@ -33,7 +33,7 @@ def main():
         p2_collide = t2.player_collision()
 
         # movement updates
-        players.update()
+        # players.update()
         tails.update()
 
         pr.begin_drawing()
