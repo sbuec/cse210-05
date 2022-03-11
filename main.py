@@ -40,10 +40,10 @@ def main():
     t1 = tails.add('t1', [p1, p2, Character('#', FONT_SIZE, pr.BLUE), WINDOW])
     t2 = tails.add('t2', [p2, p1, Character('#', FONT_SIZE, pr.RED), WINDOW])
 
+
     # Start the game
     director = Director(ks, vs)
     director.start_game(p1, t1, p2, t2, players, tails)
-   
 
 if __name__ == "__main__":
     main()

@@ -25,6 +25,7 @@ class PlayerHandler(Handler):
             player_info[0].draw()
     
     def update(self) -> None:
+        '''
         for player_info in self._input.values():
             self._ks.update_direction(player_info[0])
             self._ks.update_player_position(player_info[0])
