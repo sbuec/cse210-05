@@ -1,6 +1,5 @@
 from Handlers.Handler import Handler
 from Actors.Player import Player
-#from Movement.KeyboardInput import KeyInput
 
 class PlayerHandler(Handler):
     '''
@@ -8,7 +7,7 @@ class PlayerHandler(Handler):
     '''
 
     def __init__(self, keyboardservice):
-        self.KeyInput = keyboardservice
+        self._ks = keyboardservice
 
     def load(self, name: str, setup_info: list):
         '''
@@ -27,5 +26,5 @@ class PlayerHandler(Handler):
     
     def update(self) -> None:
         for player_info in self._input.values():
-            self.KeyInput.update_direction(player_info[0])
-            self.KeyInput.update_player_position(player_info[0])
+            self._ks.update_direction(player_info[0])
+            self._ks.update_player_position(player_info[0])
