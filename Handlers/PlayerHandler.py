@@ -6,6 +6,9 @@ class PlayerHandler(Handler):
     Description: Handles all player actions
     '''
 
+    def __init__(self, keyboardservice):
+        self._ks = keyboardservice
+
     def load(self, name: str, setup_info: list):
         '''
         Description: Creates an instance of a Player
@@ -24,5 +27,5 @@ class PlayerHandler(Handler):
     def update(self) -> None:
         '''
         for player_info in self._input.values():
-             > player_info[0] is the player object
-        '''
+            self._ks.update_direction(player_info[0])
+            self._ks.update_player_position(player_info[0])
